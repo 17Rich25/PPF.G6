@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { WBox, WImage, WText, WSection, Annotation } from "../components/WireframeComponents";
+import G6photo from "./g6-photo.jpg"
 
 export const About = () => {
   const ref = useRef(null);
@@ -24,12 +25,17 @@ export const About = () => {
           className="relative"
         >
           <WBox dashed thick className="aspect-[4/3] p-4 rotate-2">
-            <WImage aspect="aspect-full" label="GROUP PHOTO" className="h-full bg-gray-100" />
+            <WImage 
+            src={G6photo}
+            aspect="aspect-full" 
+            label="GROUP PHOTO" 
+            className="h-full bg-gray-100"
+            />
           </WBox>
           <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-black bg-white flex items-center justify-center font-mono text-4xl font-bold -rotate-6 z-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             US!
           </div>
-          <Annotation text="Hover on members to see individual bios" position="top-10 -left-10" rotate="-rotate-6" />
+          <Annotation text="We're too busy to use a proper photo so we're using this instead" position="top-10 -left-10" rotate="-rotate-6" />
         </motion.div>
 
         {/* Bio Column */}
@@ -48,6 +54,22 @@ export const About = () => {
               our diversity is our strength. We each specialize in different aspects of web development and cybersecurity. Together we combine our specialized skills to deliver
               comprehensive digital solutions.
             </p>
+            <p className="font-mono text-lg text-gray-600 dark:text-gray-400 leading-relaxed border-l-4 border-gray-300 dark:border-zinc-700 pl-4">Our members are:
+               <ul>
+                <li>Richie Simeon Olagunju</li>
+                <li>MADUABUNA Josiah Chukwuweike</li>
+                <li>KAZEEM Isreal Ayomikun</li>
+                <li>YUSUF Oluwanifemi Mary</li>
+                <li>CHIDEBERE Daniel Chidera</li>
+                <li>AIYEGBUSI Eniola Joseph</li>
+                <li>OKONKWO Chidera Emanuel</li>
+                <li>OKEOWO Oluwatimilehin Temidire</li>
+                <li>OKODASO Oghenetejiri Sarah</li>
+                <li>NWOSU Harrision Kaito</li>
+                <li>OGUNBANWO Paul Akinloluwa Favour</li>
+                <li>OGUGUA-VERWEY KATJA CHUKWUZIMUZOR</li>
+               </ul>
+               </p>
             <WText lines={4} className="opacity-50 dark:opacity-30" />
           </div>
 

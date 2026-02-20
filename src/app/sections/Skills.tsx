@@ -94,7 +94,7 @@ export const Skills = () => {
 
   return (
     <WSection id="skills" title="SKILLS" className="bg-gray-50/50">
-      <Annotation text="Hover effects reveal details" position="-top-4 left-1/2" rotate="rotate-2" />
+      <Annotation text="I found this design on a random code on Github" position="-top-4 left-1/2" rotate="rotate-2" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {categories.map((cat, i) => (
           <motion.div

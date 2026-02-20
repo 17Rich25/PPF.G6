@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { motion, AnimatePresence } from "motion/react";
 import { ExternalLink, Github, Eye } from "lucide-react";
-import { WSection, WBox, Annotation } from "../components/WireframeComponents";
+import { WSection, WBox } from "../components/WireframeComponents";
 
 const projects = [
   { id: 1, title: "Ludo App", height: 400, desc: "A fun and creative way to relieve your stress and chill." },
@@ -45,9 +45,10 @@ const ProjectCard = ({ project }: { project: any }) => {
               <h3 className="text-2xl font-bold font-mono mb-2">{project.title}</h3>
               <p className="text-gray-300 text-sm mb-6">{project.desc}</p>
               <div className="flex gap-4">
-                <button className="flex items-center gap-2 px-4 py-2 border border-white text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors">
+               <a href="src\app\sections\l-resources\ludo.html" target="_blank"> <button className="flex items-center gap-2 px-4 py-2 border border-white text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors">
                   <ExternalLink size={14} /> Live
                 </button>
+                </a>
                 <button className="flex items-center gap-2 px-4 py-2 border border-white text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors">
                   <Github size={14} /> Code
                 </button>
@@ -70,7 +71,6 @@ export const FeaturedProjects = () => {
             A curation of my best projects, focusing on user experience and technical excellence.
           </p>
         </div>
-        <Annotation text="Masonry layout adapts to screen size" position="top-0 right-0" rotate="-rotate-2" />
       </div>
 
       <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>

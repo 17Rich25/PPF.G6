@@ -1,4 +1,4 @@
-import React from "react";
+// React automatic runtime is enabled; no default React import needed
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -36,7 +36,7 @@ export const Testimonials = () => {
   return (
     <WSection id="testimonials" title="REVIEWS" className="bg-white">
       <div className="max-w-4xl mx-auto text-center relative">
-        <Annotation text="Carousel component with autoplay" position="top-0 left-0" rotate="rotate-6" />
+        <Annotation text="These are only a few of our clients" position="top-0 left-0" rotate="rotate-6" />
         <Slider {...settings}>
           {testimonials.map((t, i) => (
             <div key={i} className="px-4 py-12 focus:outline-none">

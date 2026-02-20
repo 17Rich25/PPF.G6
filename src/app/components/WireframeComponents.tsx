@@ -38,33 +38,49 @@ export const WBox: React.FC<BoxProps> = ({
 };
 
 // 2. Wireframe Image Placeholder
-export const WImage: React.FC<{
+export const WImage = ({
+  className,
+  label = "IMAGE",
+  aspect = "aspect-video",
+  src,  // ← Add this new prop
+}: {
   className?: string;
   label?: string;
   aspect?: string;
-}> = ({ className, label = "IMAGE", aspect = "aspect-video" }) => {
+  src?: string;  // Optional src for real image
+}) => {
   return (
     <div
       className={cn(
-        "relative w-full bg-gray-50 border border-black overflow-hidden flex items-center justify-center group",
+        "relative w-full bg-gray-50 border border-black overflow-hidden flex items-center justify-center",
         aspect,
         className
       )}
     >
-      {/* The "X" */}
-      <div className="absolute inset-0">
-        <svg
-          className="w-full h-full text-gray-200 stroke-1"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <line x1="0" y1="0" x2="100" y2="100" vectorEffect="non-scaling-stroke" stroke="currentColor" />
-          <line x1="100" y1="0" x2="0" y2="100" vectorEffect="non-scaling-stroke" stroke="currentColor" />
-        </svg>
-      </div>
-      <span className="relative z-10 font-mono text-sm text-gray-400 bg-white/80 px-2 py-1 border border-gray-200">
-        {label}
-      </span>
+      {src ? (
+        <img 
+          src={src} 
+          alt={label} 
+          className="w-full h-full object-cover"  // Scales image to fill
+        />
+      ) : (
+        <>
+          {/* Original placeholder code */}
+          <div className="absolute inset-0">
+            <svg
+              className="w-full h-full text-gray-200 stroke-1"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <line x1="0" y1="0" x2="100" y2="100" vectorEffect="non-scaling-stroke" stroke="currentColor" />
+              <line x1="100" y1="0" x2="0" y2="100" vectorEffect="non-scaling-stroke" stroke="currentColor" />
+            </svg>
+          </div>
+          <span className="relative z-10 font-mono text-sm text-gray-400 bg-white/80 px-2 py-1 border border-gray-300 rounded">
+            {label}
+          </span>
+        </>
+      )}
     </div>
   );
 };

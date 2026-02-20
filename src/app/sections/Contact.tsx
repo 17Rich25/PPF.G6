@@ -65,7 +65,7 @@ export const Contact = () => {
 
         {/* Socials Column */}
         <div className="flex flex-col justify-center space-y-8 relative">
-          <Annotation text="Animated hover states for social links" position="top-10 right-0" rotate="rotate-3" />
+          <Annotation text="Our social links don't redirect" position="top-10 right-0" rotate="rotate-3" />
           {[
             { name: "GitHub", icon: Github, link: "#" },
             { name: "Twitter", icon: Twitter, link: "#" },
