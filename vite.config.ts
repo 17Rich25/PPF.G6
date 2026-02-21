@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react()],
-  base: '/PPF.G6/',   // ← This is the fix
-  server: {
-    host: '127.0.0.1',
-  },
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
+
+  assetsInclude: ['**/*.svg', '**/*.csv'],
 })
