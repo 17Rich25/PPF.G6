@@ -45,7 +45,7 @@ const ProjectCard = ({ project }: { project: any }) => {
               <h3 className="text-2xl font-bold font-mono mb-2">{project.title}</h3>
               <p className="text-gray-300 text-sm mb-6">{project.desc}</p>
               <div className="flex gap-4">
-               <a href="src\app\sections\l-resources\ludo.html" target="_blank"> <button className="flex items-center gap-2 px-4 py-2 border border-white text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors">
+               <a href="src\app\sections\public\ludo.html" target="_blank" rel="noopener noreferrer"> <button className="flex items-center gap-2 px-4 py-2 border border-white text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors">
                   <ExternalLink size={14} /> Live
                 </button>
                 </a>
