@@ -1,18 +1,43 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { WBox, WImage, WText, WSection, Annotation } from "../components/WireframeComponents";
-import G6photo from "./g6-photo.jpg"
+import G6photo from "./g6-photo.jpg";
+
+interface Stat {
+  label: string;
+  value: string;
+}
+
+const TEAM_MEMBERS = [
+  "Richie Simeon Olagunju",
+  "MADUABUNA Josiah Chukwuweike",
+  "KAZEEM Isreal Ayomikun",
+  "YUSUF Oluwanifemi Mary",
+  "CHIDEBERE Daniel Chidera",
+  "AIYEGBUSI Eniola Joseph",
+  "OKONKWO Chidera Emanuel",
+  "OKEOWO Oluwatimilehin Temidire",
+  "OKODASO Oghenetejiri Sarah",
+  "NWOSU Harrision Kaito",
+  "OGUNBANWO Paul Akinloluwa Favour",
+  "OGUGUA-VERWEY KATJA CHUKWUZIMUZOR",
+] as const;
 
 export const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const stats = [
+  const stats: Stat[] = [
     { label: "Projects Completed", value: "9+" },
     { label: "Combined Years Exp", value: "8+" },
     { label: "Team Members", value: "12" },
     { label: "Specialties Covered", value: "4+" },
   ];
+
+  const handleDownloadResume = () => {
+    // Resume download handler - can be implemented when resume file is available
+    console.log("Resume download initiated");
+  };
 
   return (
     <WSection id="about" title="ABOUT">
@@ -25,11 +50,11 @@ export const About = () => {
           className="relative"
         >
           <WBox dashed thick className="aspect-[4/3] p-4 rotate-2">
-            <WImage 
-            src={G6photo}
-            aspect="aspect-full" 
-            label="GROUP PHOTO" 
-            className="h-full bg-gray-100"
+            <WImage
+              src={G6photo}
+              aspect="aspect-full"
+              label="GROUP PHOTO"
+              className="h-full bg-gray-100"
             />
           </WBox>
           <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-black bg-white flex items-center justify-center font-mono text-4xl font-bold -rotate-6 z-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -54,30 +79,23 @@ export const About = () => {
               our diversity is our strength. We each specialize in different aspects of web development and cybersecurity. Together we combine our specialized skills to deliver
               comprehensive digital solutions.
             </p>
-            <p className="font-mono text-lg text-gray-600 dark:text-gray-400 leading-relaxed border-l-4 border-gray-300 dark:border-zinc-700 pl-4">Our members are:
-               <ul>
-                <li>Richie Simeon Olagunju</li>
-                <li>MADUABUNA Josiah Chukwuweike</li>
-                <li>KAZEEM Isreal Ayomikun</li>
-                <li>YUSUF Oluwanifemi Mary</li>
-                <li>CHIDEBERE Daniel Chidera</li>
-                <li>AIYEGBUSI Eniola Joseph</li>
-                <li>OKONKWO Chidera Emanuel</li>
-                <li>OKEOWO Oluwatimilehin Temidire</li>
-                <li>OKODASO Oghenetejiri Sarah</li>
-                <li>NWOSU Harrision Kaito</li>
-                <li>OGUNBANWO Paul Akinloluwa Favour</li>
-                <li>OGUGUA-VERWEY KATJA CHUKWUZIMUZOR</li>
-               </ul>
-               </p>
+
+            <div className="font-mono text-lg text-gray-600 dark:text-gray-400 leading-relaxed border-l-4 border-gray-300 dark:border-zinc-700 pl-4">
+              <p className="mb-3 font-bold">Our members are:</p>
+              <ul className="space-y-1 list-none">
+                {TEAM_MEMBERS.map((member) => (
+                  <li key={member}>{member}</li>
+                ))}
+              </ul>
+            </div>
             <WText lines={4} className="opacity-50 dark:opacity-30" />
           </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 gap-4 pt-4">
-            {stats.map((stat, i) => (
+            {stats.map((stat) => (
               <div
-                key={i}
+                key={stat.label}
                 className="border border-black dark:border-white p-4 text-center hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black transition-colors cursor-default group"
               >
                 <div className="text-3xl font-black font-mono mb-1 group-hover:scale-110 transition-transform">
@@ -90,7 +108,11 @@ export const About = () => {
             ))}
           </div>
 
-          <button className="px-8 py-3 bg-transparent border-2 border-black dark:border-white font-mono font-bold uppercase hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
+          <button
+            onClick={handleDownloadResume}
+            className="px-8 py-3 bg-transparent border-2 border-black dark:border-white font-mono font-bold uppercase hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+            aria-label="Download team resume"
+          >
             Download Resume
           </button>
         </motion.div>
